@@ -15,6 +15,7 @@ Credits
 -------
 
 This project was started by Martin "Nodepond" Wisniowski and Thömmes "Slogmen" Schrader in January 2014. In Cologne!
+
 http://www.nodepond.com
+
 http://www.slog.io
-=======
