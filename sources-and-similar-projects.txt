@@ -1,0 +1,10 @@
+# Links, Context, Similar Projects:
+# 
+Thread-Hacking
+http://en.wikibooks.org/wiki/Ruby_Hacking_Guide/Threads
+http://vimeo.com/42573705 - Making music with RUby
+
+# Similar Projects
+https://github.com/sausheong/muse
+https://github.com/grosser/parallel
+https://github.com/halfbyte/liv3c0der
