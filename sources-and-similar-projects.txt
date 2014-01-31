@@ -8,6 +8,8 @@ http://en.wikibooks.org/wiki/Ruby_Hacking_Guide/Threads
 https://github.com/grosser/parallel
 
 # Similar Projects
+https://github.com/arirusso/micromidi -> this looks like a cool midi DSL, suitable for this purpose
+https://github.com/arirusso/unimidi -> A little bit more low-level than micromidi (dependecy from micromidi)
 https://github.com/aquabu/irbivore -> irb livecoding, unfortunately some dependecies are outdated
 https://github.com/aquabu/snorkle
 https://github.com/sausheong/muse
