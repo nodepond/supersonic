@@ -8,5 +8,6 @@ http://en.wikibooks.org/wiki/Ruby_Hacking_Guide/Threads
 https://github.com/grosser/parallel
 
 # Similar Projects
+https://github.com/aquabu/snorkle
 https://github.com/sausheong/muse
 https://github.com/halfbyte/liv3c0der
