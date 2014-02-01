@@ -32,7 +32,6 @@ end
 
 def a 
   (0..((@octaves-1)*12)).step(12) do |oct|
-
     @notes.each do |note|
       @midiout.puts(0x90, note + oct, 64) # note on
       sleep(@duration) # wait
@@ -41,9 +40,20 @@ def a
   end
 end
 
+def aThread
+  Thread.new {
+    (0..((@octaves-1)*12)).step(12) do |oct|
+      @notes.each do |note|
+        @midiout.puts(0x90, note + oct, 64) # note on
+        sleep(@duration) # wait
+        @midiout.puts(0x80, note + oct, 64) # note off
+      end
+    end
+  }
+end
+
 def seven
   (0..((@octaves-1)*12)).step(12) do |oct|
-
     @notes.each do |note|
       @midiout.puts(0x90, note + oct + 7, 64) # note on
       sleep(@duration) # wait
