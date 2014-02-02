@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'interactive_editor'
 require 'irb'
 require 'irb/completion'
 require 'unimidi'
@@ -44,6 +46,25 @@ def a
   end
 end
 
+def r
+  (1..64).each do |note|
+    rnd=rand(24)+60
+    @midiout.puts(0x90, rnd, 64) # note on
+    sleep(@duration) # wait
+    @midiout.puts(0x80, rnd, 64) # note off
+  end
+end
+def rThread
+  Thread.new{
+    (1..64).each do |note|
+      rnd=rand(24)+60
+      @midiout.puts(0x90, rnd, 64) # note on
+      sleep(@duration) # wait
+      @midiout.puts(0x80, rnd, 64) # note off
+    end
+  }
+end
+
 def aThread
   
   Thread.new {
@@ -55,6 +76,7 @@ def aThread
       end
     end
   }
+
 end
 
 def seven
