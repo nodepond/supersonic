@@ -89,17 +89,10 @@ def seven
   end
 end
 
-IRB.conf[:PROMPT] = { # name of prompt mode
-  :AUTO_INDENT => true,            # enables auto-indent mode
-  :PROMPT_I => nil,               # normal prompt
-  :PROMPT_S => nil,               # prompt for continuated strings
-  :PROMPT_C => nil,               # prompt for continuated statement
-  :RETURN => "    ==>%s\n"        # format to return value
-}
-
 clr
 puts "This is SuperSonic.\n"
 puts "You could become coding rockstar!\n"
 puts "\n\n"
 
+# http://tagaholic.me/2009/05/11/demystifying-irb-commands.html
 IRB.start
