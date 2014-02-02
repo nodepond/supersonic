@@ -96,3 +96,7 @@ puts "\n\n"
 
 # http://tagaholic.me/2009/05/11/demystifying-irb-commands.html
 IRB.start
+# I could not get the IRB-object zo config, so I just start it from console.. ;)
+#system "irb --prompt simple"
+#system "irb supersonic.rb"
+# -> Uh, that does not work either...
