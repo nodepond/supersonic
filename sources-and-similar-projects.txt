@@ -14,3 +14,6 @@ https://github.com/aquabu/irbivore -> irb livecoding, unfortunately some depende
 https://github.com/aquabu/snorkle
 https://github.com/sausheong/muse
 https://github.com/halfbyte/liv3c0der
+
+# irb and livecoding
+https://github.com/jberkel/interactive_editor
