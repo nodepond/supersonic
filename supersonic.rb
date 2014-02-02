@@ -30,6 +30,10 @@ UniMIDI::Output.gets do |output| # using their selection...
   end
 end
 
+def clr
+  system 'clear'
+end
+
 def a 
   (0..((@octaves-1)*12)).step(12) do |oct|
     @notes.each do |note|
@@ -41,6 +45,7 @@ def a
 end
 
 def aThread
+  
   Thread.new {
     (0..((@octaves-1)*12)).step(12) do |oct|
       @notes.each do |note|
@@ -61,5 +66,18 @@ def seven
     end
   end
 end
+
+IRB.conf[:PROMPT] = { # name of prompt mode
+  :AUTO_INDENT => true,            # enables auto-indent mode
+  :PROMPT_I => nil,               # normal prompt
+  :PROMPT_S => nil,               # prompt for continuated strings
+  :PROMPT_C => nil,               # prompt for continuated statement
+  :RETURN => "    ==>%s\n"        # format to return value
+}
+
+clr
+puts "This is SuperSonic.\n"
+puts "You could become coding rockstar!\n"
+puts "\n\n"
 
 IRB.start
