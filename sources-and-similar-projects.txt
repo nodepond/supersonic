@@ -17,3 +17,7 @@ https://github.com/halfbyte/liv3c0der
 
 # irb and livecoding
 https://github.com/jberkel/interactive_editor
+
+# MIDI related
+Linux / Raspberry Pi users will love this:
+'sudo apt-get install timidity' to get midi onto the Pi

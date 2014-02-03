@@ -89,6 +89,33 @@ def seven
   end
 end
 
+# building a chord-system
+def maj(note, octave, notelenght, repetitions)
+  midi = 60
+  case note
+  when "c" 
+    midi = 60
+  else
+    midi = 60
+  end
+  midi = midi + (octave-4)*12
+  repetitions.times do
+      @midiout.puts(0x90, midi, 64) # note on
+      sleep(notelenght) # wait
+      @midiout.puts(0x80, midi, 64) # note off
+      @midiout.puts(0x90, midi, 64) # note on
+      sleep(notelenght) # wait
+      @midiout.puts(0x80, midi, 64) # note off
+      @midiout.puts(0x90, midi, 64) # note on
+      sleep(notelenght) # wait
+      @midiout.puts(0x80, midi, 64) # note off
+  end
+
+end
+
+def min()
+end
+
 clr
 puts "This is SuperSonic.\n"
 puts "You could become coding rockstar!\n"
