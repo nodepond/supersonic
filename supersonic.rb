@@ -193,6 +193,27 @@ def min(note=60, octave=4, notelenght=0.1, repetitions=4)
   }
 end
 
+def looptest
+  # could this be a way to get accuarate timings?!
+  Thread.new {
+    loop do
+      maj(60, 4, 0.01, 12)
+      sleep(1)
+      min("e")
+      sleep(1)
+    end
+  }
+end
+def looptest2
+  # could this be a way to get accuarate timings?! -> It seems, that compated to a music-timer here we have some sublte inaccurate timings!
+  Thread.new {
+    loop do
+      maj(60, 4, 0.01, 1)
+      sleep(0.25)
+    end
+  }
+end
+
 clr
 puts "This is SuperSonic.\n"
 puts "You could become coding rockstar!\n"
