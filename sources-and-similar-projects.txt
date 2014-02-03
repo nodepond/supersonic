@@ -29,3 +29,4 @@ http://linux.autostatic.com/2013/10/20/using-a-raspberry-pi-as-a-piano
 # Ruby midi engine
 https://github.com/arirusso/diamond
 https://github.com/arirusso/diamond-engine
+https://github.com/arirusso/topaz/
