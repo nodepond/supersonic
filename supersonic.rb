@@ -214,6 +214,21 @@ def looptest2
   }
 end
 
+def beatTickTest
+  #loop do
+  #  puts 'beat'
+  #  sleep(0.5)
+  #end
+  loop do
+    puts 'beat'
+    (0..7).each do |t|
+      puts 'tick ' + t.to_s
+      sleep(0.0625)
+    end
+    #sleep(0.5)
+  end
+end
+
 clr
 puts "This is SuperSonic.\n"
 puts "You could become coding rockstar!\n"
