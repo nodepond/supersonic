@@ -227,6 +227,7 @@ def beatTickTest
     end
     #sleep(0.5)
   end
+  # -> still inaccurate. Maybe a suitable way would be, to make the sleep commands "dynamic" in length, in dependecy of the delta-time of execution
 end
 
 clr
