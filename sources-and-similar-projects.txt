@@ -25,3 +25,7 @@ Maybe this could be helpful..
 This documents look also interesting, but I've got still no luck with MIDI on Raspberry PI..
 http://www.tldp.org/HOWTO/MIDI-HOWTO-10.html
 http://linux.autostatic.com/2013/10/20/using-a-raspberry-pi-as-a-piano
+
+# Ruby midi engine
+https://github.com/arirusso/diamond
+https://github.com/arirusso/diamond-engine
