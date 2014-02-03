@@ -225,11 +225,11 @@ def beatTickTest
     #maj(60, 4, 0.01, 1)
       
     (0..7).each do |t|
-      t1 = Time.now
+      t1 = Time.now.to_f
       puts 'tick ' + t.to_s
 
       sleep(0.0625+(0.0625-dt))
-      t2 = Time.now
+      t2 = Time.now.to_f
       dt = t2-t1
       puts dt
     end
