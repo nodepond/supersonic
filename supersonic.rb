@@ -220,10 +220,18 @@ def beatTickTest
   #  sleep(0.5)
   #end
   loop do
+    dt = 0.0625
     puts 'beat'
+    #maj(60, 4, 0.01, 1)
+      
     (0..7).each do |t|
+      t1 = Time.now
       puts 'tick ' + t.to_s
-      sleep(0.0625)
+
+      sleep(0.0625+(0.0625-dt))
+      t2 = Time.now
+      dt = t2-t1
+      puts dt
     end
     #sleep(0.5)
   end
