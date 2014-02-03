@@ -90,30 +90,107 @@ def seven
 end
 
 # building a chord-system
-def maj(note, octave, notelenght, repetitions)
-  midi = 60
-  case note
-  when "c" 
+def maj(note=60, octave=4, notelenght=0.1, repetitions=4)
+  Thread.new {
+  
     midi = 60
-  else
-    midi = 60
-  end
-  midi = midi + (octave-4)*12
-  repetitions.times do
-      @midiout.puts(0x90, midi, 64) # note on
-      sleep(notelenght) # wait
-      @midiout.puts(0x80, midi, 64) # note off
-      @midiout.puts(0x90, midi, 64) # note on
-      sleep(notelenght) # wait
-      @midiout.puts(0x80, midi, 64) # note off
-      @midiout.puts(0x90, midi, 64) # note on
-      sleep(notelenght) # wait
-      @midiout.puts(0x80, midi, 64) # note off
-  end
-
+    if note.is_a? Integer # put midi values or "literally notes"
+      midi = note
+    else
+      case note
+      when "c" 
+        midi = 60
+      when "cis" 
+        midi = 61
+      when "d" 
+        midi = 62
+      when "dis" 
+        midi = 63
+      when "e" 
+        midi = 64
+      when "f" 
+        midi = 65
+      when "fis" 
+        midi = 66
+      when "g" 
+        midi = 67
+      when "gis" 
+        midi = 68
+      when "a" 
+        midi = 69
+      when "ais" 
+        midi = 70
+      when "b" 
+        midi = 71
+      else
+        midi = 60
+      end
+    end
+    midi = midi + (octave-4)*12
+    repetitions.times do
+        @midiout.puts(0x90, midi, 64) # note on
+        sleep(notelenght) # wait
+        @midiout.puts(0x80, midi, 64) # note off
+        @midiout.puts(0x90, midi+4, 64) # note on
+        sleep(notelenght) # wait
+        @midiout.puts(0x80, midi+4, 64) # note off
+        @midiout.puts(0x90, midi+7, 64) # note on
+        sleep(notelenght) # wait
+        @midiout.puts(0x80, midi+7, 64) # note off
+    end
+  }
 end
 
-def min()
+# building a chord-system
+def min(note=60, octave=4, notelenght=0.1, repetitions=4)
+  Thread.new {
+  
+    midi = 60
+    if note.is_a? Integer # put midi values or "literally notes"
+      midi = note
+    else
+      case note
+      when "c" 
+        midi = 60
+      when "cis" 
+        midi = 61
+      when "d" 
+        midi = 62
+      when "dis" 
+        midi = 63
+      when "e" 
+        midi = 64
+      when "f" 
+        midi = 65
+      when "fis" 
+        midi = 66
+      when "g" 
+        midi = 67
+      when "gis" 
+        midi = 68
+      when "a" 
+        midi = 69
+      when "ais" 
+        midi = 70
+      when "b" 
+        midi = 71
+      else
+        midi = 60
+      end
+    end
+    midi = midi + (octave-4)*12
+    repetitions.times do
+        @midiout.puts(0x90, midi, 64) # note on
+        sleep(notelenght) # wait
+        @midiout.puts(0x80, midi, 64) # note off
+        @midiout.puts(0x90, midi+3, 64) # note on
+        sleep(notelenght) # wait
+        @midiout.puts(0x80, midi+3, 64) # note off
+        @midiout.puts(0x90, midi+7, 64) # note on
+        sleep(notelenght) # wait
+        @midiout.puts(0x80, midi+7, 64) # note off
+    end
+  }
 end
 
 clr
