@@ -30,3 +30,4 @@ http://linux.autostatic.com/2013/10/20/using-a-raspberry-pi-as-a-piano
 https://github.com/arirusso/diamond
 https://github.com/arirusso/diamond-engine
 https://github.com/arirusso/topaz/
+https://github.com/jvoorhis/gamelan
