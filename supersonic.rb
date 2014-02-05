@@ -3,6 +3,7 @@ require 'interactive_editor'
 require 'irb'
 require 'irb/completion'
 require 'unimidi'
+require 'topaz'
 
 # this program prompts the user to select a midi output and sends some arpeggiated chords to it
 
@@ -237,6 +238,24 @@ def beatTickTest
   end
   # -> still inaccurate. Maybe a suitable way would be, to make the sleep commands "dynamic" in length, in dependecy of the delta-time of execution
 end
+
+# topaz Sequencer test
+# a mock sequencer for demonstration
+class Sequencer
+  
+  def step
+    @i ||= 0
+    p "step #{@i+=1}"
+  end
+  
+end
+def topaz
+  seq = Sequencer.new
+  # this sets 8th note = 132 bpm.  the default value is quarter note (or 4)
+  @tempo = Topaz::Tempo.new(120, :interval => 8) { seq.step; maj(60, 4, 0.01, 1) }
+  @tempo.start
+end
+
 
 clr
 puts "This is SuperSonic.\n"
