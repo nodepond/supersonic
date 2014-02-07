@@ -13,6 +13,8 @@ require 'topaz'
 
 @midiout = nil
 
+@tempo
+
 # prompt the user to select an output
 UniMIDI::Output.gets do |output| # using their selection...
 
@@ -252,9 +254,15 @@ end
 def topaz
   seq = Sequencer.new
   # this sets 8th note = 132 bpm.  the default value is quarter note (or 4)
-  @tempo = Topaz::Tempo.new(120, :interval => 8) { seq.step; maj(60, 4, 0.01, 1) }
-  @tempo.start
+  Thread.new {
+    @tempo = Topaz::Tempo.new(120, :interval => 8) { maj(60, 4, 0.01, 1) }
+    @tempo.start
+  } 
 end
+def untopaz
+  @tempo.stop
+end
+
 
 
 clr
