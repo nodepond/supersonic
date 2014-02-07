@@ -251,11 +251,11 @@ class Sequencer
   end
   
 end
-def topaz(bpm=120, ticks=8)
+def topaz(bpm=120, ticks=8, startwithdelay=0)
   seq = Sequencer.new
-  # this sets 8th note = 132 bpm.  the default value is quarter note (or 4)
   Thread.new {
     @tempo = Topaz::Tempo.new(bpm, :interval => ticks) { maj(60, 4, 0.01, 1) }
+    sleep(startwithdelay)
     @tempo.start
   } 
 end
