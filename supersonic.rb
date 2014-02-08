@@ -34,6 +34,24 @@ UniMIDI::Output.gets do |output| # using their selection...
     
   end
 end
+UniMIDI::Input.gets do |input|
+
+  @midiin = input
+
+  (0..((@octaves-1)*12)).step(12) do |oct|
+
+    while true
+      @notes.each do |note|
+      
+        @midiin.puts(0x90, note + oct, 64) # note on
+        sleep(@duration) # wait
+        @midiin.puts(0x80, note + oct, 64) # note off
+      
+      end
+    end
+  end
+  
+end
 
 def clr
   system 'clear'
