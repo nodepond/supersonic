@@ -11,9 +11,11 @@ require 'topaz'
 @octaves = 5
 @duration = 0.1
 
+@midiin = nil
 @midiout = nil
 
 @tempo
+@midiclock
 
 # prompt the user to select an output
 UniMIDI::Output.gets do |output| # using their selection...
@@ -38,19 +40,19 @@ UniMIDI::Input.gets do |input|
 
   @midiin = input
 
-  (0..((@octaves-1)*12)).step(12) do |oct|
+  #(0..((@octaves-1)*12)).step(12) do |oct|
 
-    while true
-      @notes.each do |note|
-      
-        @midiin.puts(0x90, note + oct, 64) # note on
-        sleep(@duration) # wait
-        @midiin.puts(0x80, note + oct, 64) # note off
-      
-      end
-    end
-  end
-  
+    #while true
+    #  @notes.each do |note|
+    #  
+    #    @midiin.puts(0x90, note + oct, 64) # note on
+    #    sleep(@duration) # wait
+    #    @midiin.puts(0x80, note + oct, 64) # note off
+    #  
+    #  end
+  #end
+    
+  #end
 end
 
 def clr
@@ -281,7 +283,33 @@ def untopaz
   @tempo.stop
 end
 
+def clock
+  Thread.new {
+    @midiclock = Topaz::Tempo.new(@midiin, :interval => 8, :midi => @midiout) { p "clock" }
+    @midiclock.start
+  }
+end
+def unclock
+  @midiclock.stop
+  @midiout.puts(MIDIMessage::SystemRealtime["Stop"].new.to_a)
+end
+def midiInOutDelay(seconds)
+  Thread.new {
+    @midiclock = Topaz::Tempo.new(132, :interval => 64) { @midiout.puts(MIDIMessage::SystemRealtime["Clock"].new.to_a) }
+    @midiout.puts(MIDIMessage::SystemRealtime["Start"].new.to_a)
+  
+    @midiclock.start
+    #@midiout.puts(MIDIMessage::SystemRealtime["Start"].new.to_a)
+  }
+end
+def mi
+  Thread.new {
+  
+  @midiclock = Topaz::Tempo.new(@midiin) { p "tempo" }
+  @midiclock.start
+ } 
 
+end
 
 clr
 puts "This is SuperSonic.\n"
