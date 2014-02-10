@@ -4,6 +4,7 @@ require 'irb'
 require 'irb/completion'
 require 'unimidi'
 require 'topaz'
+require 'diamond'
 
 # this program prompts the user to select a midi output and sends some arpeggiated chords to it
 
