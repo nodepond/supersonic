@@ -18,6 +18,8 @@ require 'diamond'
 @tempo = nil
 @midiclock = nil
 
+@allseq = []
+
 def midiout
   # prompt the user to select an output
   UniMIDI::Output.gets do |output| # using their selection...
@@ -313,7 +315,25 @@ def mi
   @midiclock = Topaz::Tempo.new(@midiin) { p "tempo" }
   @midiclock.start
  } 
+end
 
+# ui-methods
+# Short-code for "clr + sequences show all"
+def sa!
+  clr
+  @allseq.each do |s|
+    p s
+  end
+end
+# Short-code for require-method (to load presets and self-written methods from local files)
+# This methods searches the local folder
+def r(filename)
+  require "./#{filename}"
+end
+# Short-code for load-method (to load presets and self-written methods from local files)
+# This methods searches the local folder. You do not need to add .rb - it will added automatically
+def l(filename)
+  load "#{filename}.rb"
 end
 
 clr
