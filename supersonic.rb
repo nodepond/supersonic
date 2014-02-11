@@ -325,6 +325,35 @@ def sa!
     p s
   end
 end
+# Returns array of all sequences
+def seqs
+  return @allseq
+end
+# Return single "tracks"
+def seq1
+  return @allseq[0]
+end
+def seq2
+  return @allseq[1]
+end
+def seq3
+  return @allseq[2]
+end
+def seq4
+  return @allseq[3]
+end
+def seq5
+  return @allseq[4]
+end
+def seq6
+  return @allseq[5]
+end
+def seq7
+  return @allseq[6]
+end
+def seq8
+  return @allseq[7]
+end
 # Short-code for require-method (to load presets and self-written methods from local files)
 # This methods searches the local folder
 def r(filename)
