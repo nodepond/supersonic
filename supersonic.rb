@@ -287,11 +287,24 @@ class MasterSequencer
   def step(mididevice)
     @i ||= 0
     @i = @i%128
-    mticks = 4
-    if (@i%(128/mticks) == 0) 
-      mididevice.puts( MIDIMessage::NoteOn.new(1, 60, 64) )
+
+    mtick = 4
+    it = 128/mtick
+    if (@i%it == 0) 
+      mididevice.puts( MIDIMessage::NoteOn.new(1, 36, 64) )
+    #  p "* step #{@i}"
     end
-    p "step #{@i+=1}"
+    if (@i%(it*2) == 0) 
+      mididevice.puts( MIDIMessage::NoteOn.new(1, 40, 64) )
+    #  p "** step #{@i}"
+    end
+    if (@i%(it/2) == 0) 
+      mididevice.puts( MIDIMessage::NoteOn.new(1, 44, rand(16)+50) )
+    #  p "*** step #{@i}"
+    end
+    @i+=1
+    #p ""
+    #p "step #{@i+=1}"
   end
   
 end
