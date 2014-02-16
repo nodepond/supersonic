@@ -31,3 +31,8 @@ https://github.com/arirusso/diamond
 https://github.com/arirusso/diamond-engine
 https://github.com/arirusso/topaz/
 https://github.com/jvoorhis/gamelan
+
+# More interesting projects on live-coding
+http://rubygems.org/gems/live - Something like irb from the text-editor
+https://github.com/jashkenas/ruby-processing/wiki/Getting-Started - Ruby LiveCoding to Processing
+https://github.com/maca/scruby - The SuperCollider client for Ruby
