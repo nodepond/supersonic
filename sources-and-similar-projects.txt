@@ -36,3 +36,6 @@ https://github.com/jvoorhis/gamelan
 http://rubygems.org/gems/live - Something like irb from the text-editor
 https://github.com/jashkenas/ruby-processing/wiki/Getting-Started - Ruby LiveCoding to Processing
 https://github.com/maca/scruby - The SuperCollider client for Ruby
+
+# PureData
+https://github.com/nagachika/ruby-puredata - Some interesting stub to connect ruby with pureData
