@@ -3,6 +3,7 @@ require 'interactive_editor'
 require 'irb'
 require 'irb/completion'
 require 'unimidi'
+require 'midi-message'
 require 'topaz'
 require 'diamond'
 
@@ -272,17 +273,25 @@ end
 # a mock sequencer for demonstration
 class Sequencer
   
-  def step
+  def step(mididevice)
     @i ||= 0
-    p "step #{@i+=1}"
+    mididevice.puts( MIDIMessage::NoteOn.new(1, 60, 64) )
+    #p "step #{@i+=1}"
   end
   
 end
-def topaz(bpm=120, ticks=8, startwithdelay=0)
+def topaz(bpm=120, ticks=0, startwithdelay=0)
   seq = Sequencer.new
   Thread.new {
     @tempo = Topaz::Tempo.new(bpm, :interval => ticks) { maj(60, 4, 0.01, 1) }
     sleep(startwithdelay)
+    @tempo.start
+  } 
+end
+def simpleBassdrum(bpm=120, ticks=4)
+  seq = Sequencer.new
+  Thread.new {
+    @tempo = Topaz::Tempo.new(bpm, :interval => ticks) { seq.step(@midiout) }
     @tempo.start
   } 
 end
