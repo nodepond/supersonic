@@ -280,6 +280,30 @@ class Sequencer
   end
   
 end
+
+# First test of maing a "master sequencer", calling our subsequences
+class MasterSequencer
+  
+  def step(mididevice)
+    @i ||= 0
+    @i = @i%128
+    mticks = 4
+    if (@i%(128/mticks) == 0) 
+      mididevice.puts( MIDIMessage::NoteOn.new(1, 60, 64) )
+    end
+    p "step #{@i+=1}"
+  end
+  
+end
+def startMasterSequencer(bpm=120, ticks=128)
+  seq = MasterSequencer.new
+  Thread.new {
+    @tempo = Topaz::Tempo.new(bpm, :interval => ticks) { seq.step(@midiout) }
+    @tempo.start
+  }
+end
+
+
 def topaz(bpm=120, ticks=0, startwithdelay=0)
   seq = Sequencer.new
   Thread.new {
