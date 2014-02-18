@@ -32,9 +32,24 @@ end
 class PdSeq16
 	include Pd
 
+	@sequence
+
 	def init(host='localhost',port=3000)
 		self.connect(host,port)
+		@sequence = Hash.new
+		@sequence = { 
+			:type => "notes",
+			:data => "60 0 0 0 60 0 0 0 63 0 0 0 65 0 0 0",
+			:length => 16,
+			:host => host,
+			:port => port
+	}
 	end
+
+	def info
+		return @sequence
+	end
+	alias_method :i, :info
 end
 
 @pdseq16 = PdSeq16.new
