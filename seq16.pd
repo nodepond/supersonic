@@ -1,4 +1,4 @@
-#N canvas 69 266 830 358 10;
+#N canvas 37 33 830 358 10;
 #X obj 263 331 makenote 64 250;
 #X obj 263 355 noteout 1;
 #N canvas 0 22 450 278 (subpatch) 0;
