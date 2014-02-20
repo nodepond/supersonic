@@ -67,10 +67,29 @@ class PdSeq16
 	}
 	end
 
+	def data(mdata)
+		@sequence[:data] = mdata
+	end
+	alias_method :data=, :data
+
 	def info
 		return @sequence
 	end
 	alias_method :i, :info
+
+	# send current sequence data to puredata ss = send_sequence
+	def ss
+		self.send(@sequence[:data])
+	end
+	
+	# this method puts the current sequencer data into the copy-buffer to directly paste into irb and evaluate (currently mac only)
+	def copybuffer
+		s = ""
+		s = "seq16.data = '#{@sequence[:data]}'"
+		IO.popen('pbcopy', 'w+') {|clipboard| clipboard.write(s)}
+		print s
+	end
+	alias_method :cb, :copybuffer
 end
 
 @pdseq16 = PdSeq16.new
