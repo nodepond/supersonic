@@ -11,6 +11,8 @@ require 'sketches'
 require './supermidi'
 require './superui.rb'
 
+@nopuredata = false
+
 # not decided about the sketches approach yet...
 Sketches.config :editor => 'nano',
                 :background => true,
@@ -38,9 +40,12 @@ Sketches.config :editor => 'nano',
 #s.send('hello World;', 0, 'localhost', 3001)
 #puts s
 
-#testing ARGV[0]
+#testing ARGV-stuff
 ARGV.each do |a|
   puts a
+  if a == "--no-pd" then
+    @nopuredata = true
+  end
   ARGV.delete(a)
 end
 
@@ -107,7 +112,10 @@ class PdSeq16
 end
 
 @pdseq16 = PdSeq16.new
-@pdseq16.init
+
+if !@nopuredata
+  @pdseq16.init
+end
 
 def seq16
 	return @pdseq16
@@ -153,4 +161,6 @@ end
 
 IRB.start
 
-seq16.disconnect
+if !@nopuredata
+  seq16.disconnect
+end
