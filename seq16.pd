@@ -1,9 +1,9 @@
-#N canvas 37 33 830 358 10;
+#N canvas 37 33 956 425 10;
 #X obj 263 331 makenote 64 250;
 #X obj 263 355 noteout 1;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array pattern1 16 float 1;
-#A 0 60 60 62 60 66 66 64 66 60 60 66 71 64 62 63 70;
+#A 0 60 0 0 0 60 0 0 0 63 0 0 0 65 0 21 77;
 #X coords 0 72 15 0 200 140 1 0 0;
 #X restore 15 19 graph;
 #X msg 225 20 \; pattern1 0 60 60 62 60 66 66 64 66 60 60 66 71 64
@@ -18,11 +18,13 @@
 #X obj 295 55 netreceive 3000;
 #X floatatom 401 114 0 0 0 0 - - -;
 #X obj 286 139 print tcp;
-#X msg 546 239 \;;
+#X msg 546 239 \; pattern1 0 60 0 0 0 60 0 0 0 63 0 0 0 65 0 21 77
+\;;
 #X msg 444 158 set;
 #X msg 480 165 addsemi;
-#X msg 563 174 add pattern1 0 \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8;
 #X obj 277 102 t b b l b b;
+#X msg 563 174 add pattern1 0 \$1 \$2 \$3 \$4 \$5 \$6 \$7 \$8 \$9 \$10
+\$11 \$12 \$13 \$14 \$15 \$16;
 #X connect 0 0 1 0;
 #X connect 0 1 1 1;
 #X connect 4 0 5 0;
@@ -31,16 +33,16 @@
 #X connect 7 0 4 0;
 #X connect 8 0 0 0;
 #X connect 9 0 4 0;
-#X connect 10 0 16 0;
 #X connect 10 0 17 0;
+#X connect 10 0 16 0;
 #X connect 10 0 12 0;
 #X connect 10 1 11 0;
 #X connect 14 0 13 0;
 #X connect 15 0 13 0;
-#X connect 16 0 13 0;
-#X connect 17 0 7 0;
-#X connect 17 1 12 0;
-#X connect 17 1 13 0;
-#X connect 17 2 16 0;
-#X connect 17 3 15 0;
-#X connect 17 4 14 0;
+#X connect 16 0 7 0;
+#X connect 16 1 12 0;
+#X connect 16 1 13 0;
+#X connect 16 2 17 0;
+#X connect 16 3 15 0;
+#X connect 16 4 14 0;
+#X connect 17 0 13 0;

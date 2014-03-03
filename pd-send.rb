@@ -4,6 +4,9 @@ require 'irb/completion'
 
 require 'sketches'
 
+# super-code
+require './supermidi'
+
 Sketches.config :editor => 'nano',
                 :background => true,
                 :terminal => lambda { |cmd|
