@@ -16,15 +16,20 @@ Doku
 
 Some very first documentation:
 
+SuperSonic currently tries to connect to a pure-data patch, listening to TCP-Socket.
+
+Inspect supersonic.rb and especially "seq16" for stuff to do.
+
+Note: Midi is not really used right at the moment...
+
 ```
 midiout - Select MIDI-Output-Device
 
 midiin - Select MIDI-Input-Device
 
-maj(note=60, octave=4, notelenght=0.1, repetitions=4) - Play a major-chord on MIDI-out (You can enter the note also as text like 'c', 'cis', 'd' ... )
-
-min(note=60, octave=4, notelenght=0.1, repetitions=4) - Play a minor-chord on MIDI-out (You can enter the note also as text like 'c', 'cis', 'd' ... )
 ```
+
+
 
 Credits
 -------
