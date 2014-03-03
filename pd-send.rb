@@ -6,6 +6,7 @@ require 'sketches'
 
 # super-code
 require './supermidi'
+require './superui.rb'
 
 Sketches.config :editor => 'nano',
                 :background => true,
