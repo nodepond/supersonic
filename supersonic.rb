@@ -102,6 +102,8 @@ class PdSeq16
 	end
 	
 	# this method puts the current sequencer data into the copy-buffer to directly paste into irb and evaluate (currently mac only)
+	#http://utilitybelt.rubyforge.org/usage.html
+	#http://utilitybelt.rubyforge.org/svn/lib/utility_belt/clipboard.rb
 	def copybuffer
 		s = ""
 		s = "seq16.data = '#{@sequence[:data]}'"
@@ -119,43 +121,6 @@ end
 
 def seq16
 	return @pdseq16
-end
-
-# http://www.ruby-doc.org/stdlib-2.0/libdoc/irb/rdoc/IRB/Context.html
-def repeat_last_irb
-  #eval(IRB.CurrentContext.io.line(-2))
-  eval (IRB.CurrentContext.io << "hrllo")
-end
-
-# other approach could be, to "manipulate" the history, write something into and then use "up" to get the content
-
-#https://github.com/ruby/ruby/blob/adf511efc635e53272dc2ce9094d1a579fa2ff3c/lib/irb/workspace.rb
-#https://github.com/ruby/ruby/blob/4c2304f0004e9f1784540f3d36976aad9eab1f68/lib/irb/output-method.rb
-#https://github.com/ruby/ruby/blob/4c2304f0004e9f1784540f3d36976aad9eab1f68/lib/irb/ext/save-history.rb
-#http://www.wetware.co.nz/2010/09/how-to-persist-rails-or-irb-console-command-history-after-exit/
-def try_something
-	#IRB.CurrentContext.instance_eval{ "test" }
-	#IRB.CurrentContext.workspace
-	#IRB.CurrentContext.workspace.binding
-	#IRB.CurrentContext
-	IO.popen('pbcopy', 'w+') {|clipboard| clipboard.write("@aaa = '0 60 0 65 0'")}
-end
-# why not clipboard!
-#http://utilitybelt.rubyforge.org/usage.html
-#http://utilitybelt.rubyforge.org/svn/lib/utility_belt/clipboard.rb
-
-def irb_no_echo
-	IRB.CurrentContext.echo = false
-end
-def irb_echo
-	IRB.CurrentContext.echo = true
-end
-def irb_foo
-	#IRB.CurrentContext.io = "foo"
-	content = "noble"
-	print content
-	add = gets
-	eval(content + add)
 end
 
 

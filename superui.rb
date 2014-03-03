@@ -4,6 +4,13 @@ def clr
   system 'clear'
 end
 
+def irb_no_echo
+	IRB.CurrentContext.echo = false
+end
+def irb_echo
+	IRB.CurrentContext.echo = true
+end
+
 # Short-code for require-method (to load presets and self-written methods from local files)
 # This methods searches the local folder
 def r(filename)
