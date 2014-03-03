@@ -11,6 +11,11 @@ Status
 
 Uhm, don't expect anything! We're just getting the things together. It's even not alpha right at the moment... 
 
+You can take a look at the dev-board at Trello! Feel free to submit your feature-requests or bugs...
+
+https://trello.com/b/VwEZS1U1/supersonic
+
+
 Doku
 ----
 
