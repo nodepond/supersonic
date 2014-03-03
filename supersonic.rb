@@ -1,13 +1,17 @@
+# SuperSonic - A livecoding-tool for irb by m.wisniowsi (nodepond.com) and t.schrader (slogmen).
+# Currently this tool need an open socket to a pure-data patch
+
 require 'socket'
 require 'irb'
 require 'irb/completion'
 
 require 'sketches'
 
-# super-code
+# SuperSonic-code
 require './supermidi'
 require './superui.rb'
 
+# not decided about the sketches approach yet...
 Sketches.config :editor => 'nano',
                 :background => true,
                 :terminal => lambda { |cmd|
@@ -33,6 +37,12 @@ Sketches.config :editor => 'nano',
 #s.bind(nil, 3001)
 #s.send('hello World;', 0, 'localhost', 3001)
 #puts s
+
+#testing ARGV[0]
+ARGV.each do |a|
+  puts a
+  ARGV.delete(a)
+end
 
 
 module Pd
