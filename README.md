@@ -25,6 +25,8 @@ SuperSonic currently tries to connect to a pure-data patch, listening to TCP-Soc
 
 Inspect supersonic.rb and especially "seq16" for stuff to do.
 
+Type "man" for some help on the commands
+
 Note: Midi is not really used right at the moment...
 
 ```
