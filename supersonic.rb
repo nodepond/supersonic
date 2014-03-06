@@ -57,7 +57,7 @@ module Pd
 	
 	def connect(host, port)
 		@sock = TCPSocket.new("localhost",port)
-		@sock.write ( 'SuperSonic inited on port '+ port.to_s)
+		@sock.write ( 'SuperSonic inited on port '+ port.to_s+";")
 	end
 
 	def disconnect
