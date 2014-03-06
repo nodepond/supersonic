@@ -21,7 +21,7 @@ Doku
 
 Some very first documentation:
 
-SuperSonic currently tries to connect to a pure-data patch, listening to TCP-Socket.
+SuperSonic currently tries to connect to a pure-data patch, listening to TCP-Socket (seq16.pd).
 
 Inspect supersonic.rb and especially "seq16" for stuff to do.
 

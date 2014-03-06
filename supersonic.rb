@@ -9,7 +9,8 @@ require 'sketches'
 
 # SuperSonic-code
 require './supermidi'
-require './superui.rb'
+require './superui'
+require './superhelp'
 
 @nopuredata = false
 
@@ -97,9 +98,27 @@ class PdSeq16
 	alias_method :i, :info
 
 	# send current sequence data to puredata ss = send_sequence
-	def ss
+	def s
 		self.send(@sequence[:data])
 	end
+
+	# send stop signal
+	def stop
+		self.send("stop")
+	end
+	alias_method :sto, :stop
+
+	# send start signal
+	def start
+		self.send("start")
+	end
+	alias_method :sta, :start
+
+	# send reset signal
+	def reset
+		self.send("reset")
+	end
+	alias_method :r, :reset
 	
 	# this method puts the current sequencer data into the copy-buffer to directly paste into irb and evaluate (currently mac only)
 	#http://utilitybelt.rubyforge.org/usage.html
@@ -110,7 +129,7 @@ class PdSeq16
 		IO.popen('pbcopy', 'w+') {|clipboard| clipboard.write(s)}
 		print s
 	end
-	alias_method :cb, :copybuffer
+	alias_method :cp, :copybuffer
 end
 
 @pdseq16 = PdSeq16.new
