@@ -91,6 +91,10 @@ class PdSeq16
 		@sequence[:data] = mdata
 	end
 	alias_method :data=, :data
+	def data!(mdata)
+		@sequence[:data] = mdata
+		s
+	end
 
 	def info
 		return @sequence
@@ -127,7 +131,7 @@ class PdSeq16
 	#http://utilitybelt.rubyforge.org/svn/lib/utility_belt/clipboard.rb
 	def copybuffer
 		s = ""
-		s = "seq16.data = '#{@sequence[:data]}'"
+		s = "seq16.data '#{@sequence[:data]}'"
 		IO.popen('pbcopy', 'w+') {|clipboard| clipboard.write(s)}
 		print s
 	end
