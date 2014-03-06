@@ -107,12 +107,14 @@ class PdSeq16
 		self.send("stop")
 	end
 	alias_method :sto, :stop
+	alias_method :off, :stop
 
 	# send start signal
 	def start
 		self.send("start")
 	end
 	alias_method :sta, :start
+	alias_method :on, :start
 
 	# send reset signal
 	def reset
