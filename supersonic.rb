@@ -81,6 +81,7 @@ class PdSeq16
 		@sequence = { 
 			:type => "notes",
 			:data => "60 0 0 0 60 0 0 0 63 0 0 0 65 0 0 0",
+			:transpose => 0,
 			:length => 16,
 			:host => host,
 			:port => port
@@ -99,8 +100,25 @@ class PdSeq16
 
 	# send current sequence data to puredata ss = send_sequence
 	def s
+		# calculate transpose
+		mdata = @sequence[:data].split
+		mdata.each { |note|
+			note.to_i + t
+			note.to_s
+		}
+		data_to_send = mdata.join
+		p data_to_send
+		# send data
+		#self.send(@sequence[:data])
 		self.send(@sequence[:data])
 	end
+
+	# transpose sequence values
+	def transpose(t)
+		@sequence[:transpose] = t
+	end
+	alias_method :transp, :transpose
+	alias_method :t, :transpose
 
 	# send stop signal
 	def stop
