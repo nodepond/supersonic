@@ -106,15 +106,16 @@ class PdSeq16
 	def s
 		# calculate transpose
 		mdata = @sequence[:data].split
-		mdata.each { |note|
-			note.to_i + t
+		mdata.map! { |note|
+			note = note.to_i + @sequence[:transpose]
+			puts (note)
 			note.to_s
 		}
-		data_to_send = mdata.join
+		data_to_send = mdata.join(" ")
 		p data_to_send
 		# send data
 		#self.send(@sequence[:data])
-		self.send(@sequence[:data])
+		self.send(data_to_send)
 	end
 
 	# transpose sequence values
@@ -123,6 +124,13 @@ class PdSeq16
 	end
 	alias_method :transp, :transpose
 	alias_method :t, :transpose
+
+	def transpose!(t)
+		@sequence[:transpose] = t
+		s
+	end
+	alias_method :transp!, :transpose!
+	alias_method :t!, :transpose!
 
 	# send stop signal
 	def stop
