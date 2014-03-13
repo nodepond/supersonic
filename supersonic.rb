@@ -108,11 +108,10 @@ class PdSeq16
 		mdata = @sequence[:data].split
 		mdata.map! { |note|
 			note = note.to_i + @sequence[:transpose]
-			puts (note)
 			note.to_s
 		}
 		data_to_send = mdata.join(" ")
-		p data_to_send
+		
 		# send data
 		#self.send(@sequence[:data])
 		self.send(data_to_send)
