@@ -24,25 +24,23 @@ Requirements: Puredata-Extended and Ruby with required ruby gems
 ```
 Open PureData-Patch "seq16.pd". You can to this from console as well with 'open seq16.pd'.
 
-Then start supersonic with "ruby supersonic.rb". An irb with supersonic-commands opens.
+Then start supersonic with "ruby supersonic.rb". An irb with supersonic-commands opens...
 ```
 
 SuperSonic currently tries to connect to a pure-data patch, listening to TCP-Socket (seq16.pd).
 
 Inspect supersonic.rb and especially "seq16" for stuff to do.
 
-
-Type "man" for some help on the commands
-
-
 ```
+Type "man" for some help on the commands
+```
+
 Note: Midi is not really used right at the moment...
 
 midiout - Select MIDI-Output-Device
 
 midiin - Select MIDI-Input-Device
 
-```
 
 
 
