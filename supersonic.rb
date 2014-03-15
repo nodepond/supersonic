@@ -52,7 +52,6 @@ end
 
 
 module Pd
-
 	@sock = nil
 	
 	def connect(host, port)
@@ -67,7 +66,6 @@ module Pd
 	def send(message)
 		@sock.write(message+";")
 	end
-
 end
 
 class PdSeq16
@@ -130,6 +128,19 @@ class PdSeq16
 	end
 	alias_method :transp!, :transpose!
 	alias_method :t!, :transpose!
+
+	# transpose sequence values
+	def addTranspose(t)
+		@sequence[:transpose] += t
+	end
+	alias_method :addt, :addTranspose
+	# transpose sequence values
+	def addTranspose!(t)
+		@sequence[:transpose] += t
+		s
+	end
+	alias_method :addt!, :addTranspose!
+
 
 	# send stop signal
 	def stop
