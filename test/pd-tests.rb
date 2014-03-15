@@ -12,9 +12,34 @@ class PdTests < Test::Unit::TestCase
 	def test_pd_connect
 		seq16 = PdSeq16.new
 		seq16.init("localhost",3000)
-		p seq16.i
 		assert_equal(seq16.i[:port], 3000)
 		assert_equal(seq16.i[:host], "localhost")
+		seq16.disconnect
+	end
+
+	def test_pd_send_data
+		seq16 = PdSeq16.new
+		seq16.init("localhost",3000)
+		seq16.data = "60 0 0 0 60 0 0 0 63 0 0 0 65 0 0 0"
+		r = seq16.s
+		assert_equal(r, 36)
+		seq16.disconnect
+	end
+
+	def test_pd_send_on
+		seq16 = PdSeq16.new
+		seq16.init("localhost",3000)
+		r = seq16.on
+		assert_equal(r, 6)
+		seq16.disconnect
+	end
+
+	def test_pd_send_off
+		seq16 = PdSeq16.new
+		seq16.init("localhost",3000)
+		r = seq16.off
+		assert_equal(r, 5)
+		seq16.disconnect
 	end
 
 end
