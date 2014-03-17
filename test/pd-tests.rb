@@ -22,7 +22,7 @@ class PdTests < Test::Unit::TestCase
 		seq16.init("localhost",3000)
 		seq16.data = "60 0 0 0 60 0 0 0 63 0 0 0 65 0 0 0"
 		r = seq16.s
-		assert_equal(r, 36)
+		assert_equal(r, 44)
 		seq16.disconnect
 	end
 
@@ -30,7 +30,7 @@ class PdTests < Test::Unit::TestCase
 		seq16 = PdSeq16.new
 		seq16.init("localhost",3000)
 		r = seq16.on
-		assert_equal(r, 6)
+		assert_equal(r, 14)
 		seq16.disconnect
 	end
 
@@ -38,8 +38,17 @@ class PdTests < Test::Unit::TestCase
 		seq16 = PdSeq16.new
 		seq16.init("localhost",3000)
 		r = seq16.off
-		assert_equal(r, 5)
+		assert_equal(r, 13)
 		seq16.disconnect
 	end
 
+	def test_global_header_string
+		seq16 = PdSeq16.new
+		seq16.init("localhost",3000)
+		seq16.track = 1
+		assert_equal(seq16.seqDataHeader, "seq16 1 ")
+		seq16.track = 2
+		assert_equal(seq16.seqDataHeader, "seq16 " + seq16.i[:track].to_s + " ")
+		seq16.disconnect
+	end
 end
