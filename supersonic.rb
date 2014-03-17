@@ -80,10 +80,15 @@ class PdSeq16
 			:type => "notes",
 			:data => "60 0 0 0 60 0 0 0 63 0 0 0 65 0 0 0",
 			:transpose => 0,
+			:track => 1,
 			:length => 16,
 			:host => host,
 			:port => port
 	}
+	end
+
+	def seqDataHeader
+		return "seq16 " + @sequence[:track].to_s + " "
 	end
 
 	def data(mdata)
@@ -112,8 +117,15 @@ class PdSeq16
 		
 		# send data
 		#self.send(@sequence[:data])
-		self.send(data_to_send)
+		self.send(seqDataHeader + data_to_send)
 	end
+
+	def track(num)
+		# num = usally 1..4
+		@sequence[:track] = num
+	end
+	alias_method :track=, :track
+
 
 	# transpose sequence values
 	def transpose(t)
@@ -144,21 +156,21 @@ class PdSeq16
 
 	# send stop signal
 	def stop
-		self.send("stop")
+		self.send(seqDataHeader + "stop")
 	end
 	alias_method :sto, :stop
 	alias_method :off, :stop
 
 	# send start signal
 	def start
-		self.send("start")
+		self.send(seqDataHeader + "start")
 	end
 	alias_method :sta, :start
 	alias_method :on, :start
 
 	# send reset signal
 	def reset
-		self.send("reset")
+		self.send(seqDataHeader + "reset")
 	end
 	alias_method :r, :reset
 	
