@@ -1,0 +1,25 @@
+#N canvas 0 22 649 300 10;
+#X floatatom 221 185 5 0 0 0 - - -;
+#X obj 162 255 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 170 209 metro 500;
+#X obj 166 90 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 221 36 5 0 0 1 bpm - -;
+#X obj 221 59 / 60;
+#X msg 221 89 1000 \$1;
+#X obj 221 114 /;
+#X text 258 58 get second-base of bpm;
+#X text 281 88 convert into ms-domain;
+#X obj 231 150 /;
+#X floatatom 276 132 5 1 32 0 - - -;
+#X text 320 132 number of ticks between each beat;
+#X connect 0 0 2 1;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 10 0;
+#X connect 10 0 0 0;
+#X connect 11 0 10 1;
