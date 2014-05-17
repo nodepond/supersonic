@@ -5,34 +5,12 @@ require 'socket'
 require 'irb'
 require 'irb/completion'
 
-require 'sketches'
-
 # SuperSonic-code
 require './supermidi'
 require './superui'
 require './superhelp'
 
 @nopuredata = false
-
-# not decided about the sketches approach yet...
-Sketches.config :editor => 'nano',
-                :background => true,
-                :terminal => lambda { |cmd|
-                  "xterm -fg gray -bg black -e #{cmd.dump}"
-                }
-
-#Sketches.config :editor => 'nano',
-#                :background => true,
-#                :terminal => lambda { |cmd|
-#                  "'/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl' #{cmd.dump}"
-#                }
-
-#Sketches.config :editor => '/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl',
-#                :background => true
-
-#Sketches.config :editor => 'nano',
-#                :background => true
-                
 
 ### UDP Socket connection has to be some troubles. Let's make this later...
 
@@ -53,7 +31,7 @@ end
 
 module Pd
 	@sock = nil
-	
+
 	def connect(host, port)
 		@sock = TCPSocket.new("localhost",port)
 		@sock.write ( 'SuperSonic inited on port '+ port.to_s+";")
@@ -76,7 +54,7 @@ class PdSeq16
 	def init(host='localhost',port=3000)
 		self.connect(host,port)
 		@sequence = Hash.new
-		@sequence = { 
+		@sequence = {
 			:type => "notes",
 			:data => "60 0 0 0 60 0 0 0 63 0 0 0 65 0 0 0",
 			:transpose => 0,
@@ -114,7 +92,7 @@ class PdSeq16
 			note.to_s
 		}
 		data_to_send = mdata.join(" ")
-		
+
 		# send data
 		#self.send(@sequence[:data])
 		self.send(seqDataHeader + data_to_send)
@@ -173,7 +151,7 @@ class PdSeq16
 		self.send(seqDataHeader + "reset")
 	end
 	alias_method :r, :reset
-	
+
 	# this method puts the current sequencer data into the copy-buffer to directly paste into irb and evaluate (currently mac only)
 	#http://utilitybelt.rubyforge.org/usage.html
 	#http://utilitybelt.rubyforge.org/svn/lib/utility_belt/clipboard.rb
