@@ -157,7 +157,7 @@ class PdSeq16
 	#http://utilitybelt.rubyforge.org/svn/lib/utility_belt/clipboard.rb
 	def copybuffer
 		s = ""
-		s = "seq16.data '#{@sequence[:data]}'"
+		s = "'#{@sequence[:data]}'"
 		IO.popen('pbcopy', 'w+') {|clipboard| clipboard.write(s)}
 		print s
 	end
