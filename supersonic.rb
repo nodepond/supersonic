@@ -51,19 +51,23 @@ class PdSeq16
 
 	@sequence
 
-	def init(host='localhost',port=3000)
+	def init(host='localhost',port=3000,track=1)
 		@sequence = Hash.new
 		@sequence = {
 			:type => "notes",
 			:data => "60 0 0 0 60 0 0 0 63 0 0 0 65 0 0 0",
 			:transpose => 0,
-			:track => 1,
+			:track => track,
 			:length => 16,
       :host => host,
       :port => port
 	}
   self.connect(host,port)
 	end
+
+  def initWithTrack(track)
+    self.init('localhost',3000,track)
+  end
 
 	def seqDataHeader
 		return "seq16 " + @sequence[:track].to_s + " "
