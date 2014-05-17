@@ -83,7 +83,7 @@ class PdSeq16
 	end
 	alias_method :i, :info
 
-	# send current sequence data to puredata ss = send_sequence
+	# send current sequence data to puredata
 	def s
 		# calculate transpose
 		mdata = @sequence[:data].split
@@ -151,6 +151,14 @@ class PdSeq16
 		self.send(seqDataHeader + "reset")
 	end
 	alias_method :r, :reset
+
+  # send seq length
+  def length(l)
+    if l != nil
+      @sequence[:length] = l
+    end
+    self.send(seqDataHeader + "length " + @sequence[:length].to_s)
+  end
 
 	# this method puts the current sequencer data into the copy-buffer to directly paste into irb and evaluate (currently mac only)
 	#http://utilitybelt.rubyforge.org/usage.html
