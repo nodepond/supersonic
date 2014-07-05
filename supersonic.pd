@@ -290,9 +290,9 @@ API that makes integration simple plain easy 2 Enables high-level design
 for sound-module-designers \, without known about seq-data-implementation
 details 3 A standart-set of parameters to implement (global params
 \, sequence params);
-#X text 498 157 The real challange seems to be at the seq / input design.
-;
 #X text 507 176 Consider monophonic vs. polyphonic.;
+#X text 498 157 The real challenge seems to be at the seq / input design.
+;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
 #X connect 3 0 4 0;
