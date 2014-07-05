@@ -1,4 +1,4 @@
-#N canvas -28 56 873 618 10;
+#N canvas 0 56 873 618 10;
 #X obj 514 71 netreceive 3000;
 #X floatatom 601 97 0 0 0 0 - - -;
 #X obj 514 97 s rawmessage;
@@ -91,7 +91,7 @@ dsp 2 9 1 9 -225271 -195568 -33289 1 1;
 #X obj 25 320 makenote 64 250;
 #X obj 25 344 noteout 1;
 #X text 24 293 MIDI;
-#N canvas 763 48 460 590 littleBlimp 0;
+#N canvas 234 43 460 590 littleBlimp 0;
 #X obj 72 31 inlet;
 #X obj 143 358 outlet~;
 #X obj 143 212 mtof~;
@@ -285,6 +285,11 @@ dsp 2 9 1 9 -225271 -195568 -33289 1 1;
 #X obj 289 320 *~ 0.2;
 #X obj 381 318 *~ 0.2;
 #X obj 473 317 *~ 0.2;
+#X text 573 372 SoundModule-Design-Attributes 1 Input-Agnostic -> Standart
+API that makes integration simple plain easy 2 Enables high-level design
+for sound-module-designers \, without known about seq-data-implementation
+details 3 A standart-set of parameters to implement (global params
+\, sequence params);
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
 #X connect 3 0 4 0;
