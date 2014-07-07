@@ -1,4 +1,4 @@
-#N canvas 0 56 873 618 10;
+#N canvas 8 22 910 692 10;
 #X obj 514 71 netreceive 3000;
 #X floatatom 601 97 0 0 0 0 - - -;
 #X obj 514 97 s rawmessage;
@@ -293,6 +293,10 @@ details 3 A standart-set of parameters to implement (global params
 #X text 507 176 Consider monophonic vs. polyphonic.;
 #X text 498 157 The real challenge seems to be at the seq / input design.
 ;
+#X text 354 556 Which problem do I want to solve? 1 Make it easy for
+sound-design 2 Combine ease of use with complex setup and freedom of
+use / sounddesign 3 Expressive freedom and building blocks for live
+/ recording / later DAW-processing;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
 #X connect 3 0 4 0;
