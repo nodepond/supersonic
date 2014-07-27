@@ -297,7 +297,7 @@ details 3 A standart-set of parameters to implement (global params
 sound-design 2 Combine ease of use with complex setup and freedom of
 use / sounddesign 3 Expressive freedom and building blocks for live
 / recording / later DAW-processing;
-#N canvas 423 87 685 302 soundmodule-template 1;
+#N canvas 423 87 685 302 soundmodule-template 0;
 #X obj 28 38 inlet;
 #X obj 148 39 inlet;
 #X obj 276 39 inlet;
@@ -310,6 +310,44 @@ use / sounddesign 3 Expressive freedom and building blocks for live
 #X text 421 14 cutoff;
 #X text 582 14 reso;
 #X restore 529 492 pd soundmodule-template;
+#N canvas 598 203 629 513 sequence-template 1;
+#X obj 23 31 r on;
+#X text 60 32 trigger;
+#X obj 129 32 inlet;
+#X text 172 32 channel number;
+#X floatatom 129 62 5 0 0 0 - - -;
+#X obj 23 113 cup;
+#X obj 23 136 % 16;
+#X obj 23 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X msg 44 65 0;
+#X obj 23 88 metro 125;
+#X obj 114 200 s;
+#X msg 129 92 symbol \$1-note;
+#X obj 23 163 tabread \$0notes;
+#X obj 136 163 table \$0notes 16;
+#X text 152 202 send (num)-note;
+#X obj 393 201 s;
+#X msg 408 93 symbol \$1-vel;
+#X obj 302 164 tabread \$0vel;
+#X obj 415 164 table \$0vel 16;
+#X text 431 203 send (num)-vel;
+#X connect 0 0 7 0;
+#X connect 2 0 4 0;
+#X connect 4 0 11 0;
+#X connect 4 0 16 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 0 17 0;
+#X connect 7 0 9 0;
+#X connect 8 0 5 0;
+#X connect 9 0 5 0;
+#X connect 11 0 10 1;
+#X connect 12 0 10 0;
+#X connect 16 0 15 1;
+#X connect 17 0 15 0;
+#X restore 650 295 pd sequence-template;
+#X floatatom 650 257 5 0 0 1 Channel_number - -;
 #X connect 0 0 2 0;
 #X connect 0 1 1 0;
 #X connect 3 0 4 0;
@@ -351,3 +389,4 @@ use / sounddesign 3 Expressive freedom and building blocks for live
 #X connect 33 0 11 2;
 #X connect 34 0 11 1;
 #X connect 34 0 11 2;
+#X connect 41 0 40 0;
