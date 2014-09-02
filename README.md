@@ -4,7 +4,7 @@ SuperSonic
 About
 -----
 
-A minimalistic live-coding sequencer in PureData. The sequencer receives via socket-connection - ready for live-coding with text, i.e. with Ruby, JavaScript or other scripting languages.
+A minimalistic live-coding sequencer in PureData. The sequencer receives data via socket-connection - ready for live-coding with text, i.e. with Ruby, JavaScript or other scripting languages.
 
 Status
 ------
