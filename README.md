@@ -1,7 +1,7 @@
 SuperSonic
 ==========
 
-About 
+About
 -----
 
 An experiment in making a music live-coding tool in Ruby.
@@ -9,7 +9,7 @@ An experiment in making a music live-coding tool in Ruby.
 Status
 ------
 
-This is extremely early-on, but you can already play with it!
+Things are about the change. I am currently rewriting the main-modules.
 
 You can take a look at the dev-board at Trello! Feel free to submit your feature-requests or bugs...
 
