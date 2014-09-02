@@ -48,7 +48,7 @@
 #X text 57 32 trigger;
 #X obj 23 113 cup;
 #X obj 23 136 % 16;
-#X obj 23 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 23 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X msg 44 65 0;
 #X obj 23 88 metro 125;
@@ -463,7 +463,7 @@
 ;
 #X text 185 130 NOTE: This is work in progress and not finished yet!
 ;
-#N canvas 65 204 894 570 socket-message-router 1;
+#N canvas 44 22 894 570 socket-message-router 1;
 #X obj 192 379 cup;
 #X obj 192 402 % 16;
 #X obj 192 332 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -504,7 +504,7 @@ ch13 ch14 ch15 ch16;
 #X connect 15 1 18 0;
 #X connect 16 1 15 0;
 #X restore 0 5 pd socket-message-router;
-#X obj 0 -51 netreceive 3001;
+#X obj 0 -51 netreceive 3000;
 #X connect 2 0 3 0;
 #X connect 18 0 1 0;
 #X connect 18 1 0 0;
