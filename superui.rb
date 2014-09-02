@@ -25,4 +25,4 @@ end
 clr
 puts "This is SuperSonic.\n"
 puts "You could become coding rockstar!\n"
-puts "\n\n"
+puts "\n"
