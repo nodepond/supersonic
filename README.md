@@ -4,7 +4,7 @@ SuperSonic
 About
 -----
 
-A minimalistic live-coding sequencer in PureData. The sequencer receiving data via socket - suited to live-code with code, i.e. in Ruby.
+A minimalistic live-coding sequencer in PureData. The sequencer receives via socket-connection - ready for live-coding with text, i.e. with Ruby, JavaScript or other scripting languages.
 
 Status
 ------
@@ -47,8 +47,6 @@ midiin - Select MIDI-Input-Device
 Credits
 -------
 
-This project was started by Martin "Nodepond" Wisniowski and Thömmes "Slogmen" Schrader in January 2014. In Cologne!
+This project was started by Martin "Nodepond" Wisniowski (http://www.nodepond.com) in January 2014 after a discussion with Thömmes "Slogmen" Schrader (http://www.slog.io) about Raspberry Pi, Ruby and LiveCoding.
 
-http://www.nodepond.com
-
-http://www.slog.io
+SuperSonic is maintained by Martin Wisniowski, with hands-on and good feedback from T.Schrader and the PureData UserGroup Cologne (http://pdcologne.reboot-network.de).
