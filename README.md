@@ -4,7 +4,7 @@ SuperSonic
 About
 -----
 
-An experiment in making a music live-coding tool in Ruby.
+A minimalistic live-coding sequencer in PureData. The sequencer receiving data via socket - suited to live-code with code, i.e. in Ruby.
 
 Status
 ------
@@ -16,7 +16,7 @@ You can take a look at the dev-board at Trello! Feel free to submit your feature
 https://trello.com/b/VwEZS1U1/supersonic
 
 
-Doku
+(depreciated) Doku
 ----
 
 Requirements: Puredata-Extended and Ruby with required ruby gems
