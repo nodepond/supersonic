@@ -1,4 +1,4 @@
-#N canvas 8 22 910 692 10;
+#N canvas 149 22 910 692 10;
 #X obj 514 71 netreceive 3000;
 #X floatatom 601 97 0 0 0 0 - - -;
 #X obj 514 97 s rawmessage;
@@ -297,20 +297,20 @@ details 3 A standart-set of parameters to implement (global params
 sound-design 2 Combine ease of use with complex setup and freedom of
 use / sounddesign 3 Expressive freedom and building blocks for live
 / recording / later DAW-processing;
-#N canvas 423 87 685 302 soundmodule-template 0;
+#N canvas 423 87 685 302 soundmodule-template 1;
 #X obj 28 38 inlet;
 #X obj 148 39 inlet;
 #X obj 276 39 inlet;
 #X obj 422 40 inlet;
 #X obj 582 41 inlet;
-#X obj 41 259 send~ tracknum_n;
+#X obj 35 259 send~ tracknum_n;
 #X text 25 18 notein (midinum);
 #X text 146 16 velocity (0..127);
 #X text 273 14 decay (0..127);
 #X text 421 14 cutoff;
 #X text 582 14 reso;
 #X restore 529 492 pd soundmodule-template;
-#N canvas 598 203 629 513 sequence-template 1;
+#N canvas 408 106 629 513 sequence-template 1;
 #X obj 23 31 r on;
 #X text 60 32 trigger;
 #X obj 129 32 inlet;
@@ -318,7 +318,7 @@ use / sounddesign 3 Expressive freedom and building blocks for live
 #X floatatom 129 62 5 0 0 0 - - -;
 #X obj 23 113 cup;
 #X obj 23 136 % 16;
-#X obj 23 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+#X obj 23 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X msg 44 65 0;
 #X obj 23 88 metro 125;
