@@ -1,4 +1,4 @@
-#N canvas 23 210 859 460 10;
+#N canvas 24 209 859 460 10;
 #X floatatom 117 -5 0 0 0 0 - - -;
 #X obj 30 -5 s rawmessage;
 #X obj 166 -29 r rawmessage;
@@ -42,6 +42,7 @@
 #X obj 167 323 table 14-vel 16;
 #X obj 167 343 table 15-vel 16;
 #X obj 167 363 table 16-vel 16;
+#X obj 37 37;
 #X restore 31 144 pd init-tables;
 #N canvas 57 72 265 280 sequencer 0;
 #X obj 23 31 r on;
@@ -462,7 +463,7 @@
 ;
 #X text 215 150 NOTE: This is work in progress and not finished yet!
 ;
-#N canvas 18 120 1109 623 socket-message-router 1;
+#N canvas 18 120 1109 623 socket-message-router 0;
 #X obj 69 735 cup;
 #X obj 69 678 % 16;
 #X obj 69 688 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
@@ -547,7 +548,7 @@ ch13 ch14 ch15 ch16;
 #X msg 610 187 14;
 #X msg 610 270 15;
 #X msg 610 353 16;
-#N canvas 32 41 653 342 write-seq 1;
+#N canvas 32 41 653 342 write-seq 0;
 #X text 442 74 we have \$1-notes;
 #X text 442 85 we have \$1-vel;
 #X obj 165 25 r write_data;
@@ -659,6 +660,576 @@ ch13 ch14 ch15 ch16;
 #X connect 80 0 70 0;
 #X restore 30 25 pd socket-message-router;
 #X obj 30 -31 netreceive 3000;
+#N canvas 121 24 926 427 seq-visi 1;
+#X obj 109 76 bng 15 100 50 0 empty visi-ch1-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 76 bng 15 100 50 0 empty visi-ch1-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 76 bng 15 100 50 0 empty visi-ch1-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 76 bng 15 100 50 0 empty visi-ch1-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 76 bng 15 100 50 0 empty visi-ch1-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 76 bng 15 100 50 0 empty visi-ch1-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 76 bng 15 100 50 0 empty visi-ch1-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 76 bng 15 100 50 0 empty visi-ch1-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 76 bng 15 100 50 0 empty visi-ch1-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 76 bng 15 100 50 0 empty visi-ch1-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 76 bng 15 100 50 0 empty visi-ch1-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 76 bng 15 100 50 0 empty visi-ch1-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 76 bng 15 100 50 0 empty visi-ch1-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 76 bng 15 100 50 0 empty visi-ch1-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 76 bng 15 100 50 0 empty visi-ch1-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 76 bng 15 100 50 0 empty visi-ch1-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj -230 115 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj -230 161 cup;
+#X obj -230 185 % 16;
+#X obj -230 314 s;
+#X obj -230 282 t b s;
+#X obj -230 211 + 1;
+#X obj 109 91 bng 15 100 50 0 empty visi-ch2-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 91 bng 15 100 50 0 empty visi-ch2-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 91 bng 15 100 50 0 empty visi-ch2-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 91 bng 15 100 50 0 empty visi-ch2-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 91 bng 15 100 50 0 empty visi-ch2-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 91 bng 15 100 50 0 empty visi-ch2-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 91 bng 15 100 50 0 empty visi-ch2-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 91 bng 15 100 50 0 empty visi-ch2-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 91 bng 15 100 50 0 empty visi-ch2-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 91 bng 15 100 50 0 empty visi-ch2-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 91 bng 15 100 50 0 empty visi-ch2-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 91 bng 15 100 50 0 empty visi-ch2-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 91 bng 15 100 50 0 empty visi-ch2-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 91 bng 15 100 50 0 empty visi-ch2-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 91 bng 15 100 50 0 empty visi-ch2-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 91 bng 15 100 50 0 empty visi-ch2-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 106 bng 15 100 50 0 empty visi-ch3-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 106 bng 15 100 50 0 empty visi-ch3-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 106 bng 15 100 50 0 empty visi-ch3-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 106 bng 15 100 50 0 empty visi-ch3-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 106 bng 15 100 50 0 empty visi-ch3-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 106 bng 15 100 50 0 empty visi-ch3-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 106 bng 15 100 50 0 empty visi-ch3-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 106 bng 15 100 50 0 empty visi-ch3-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 106 bng 15 100 50 0 empty visi-ch3-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 106 bng 15 100 50 0 empty visi-ch3-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 106 bng 15 100 50 0 empty visi-ch3-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 106 bng 15 100 50 0 empty visi-ch3-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 106 bng 15 100 50 0 empty visi-ch3-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 106 bng 15 100 50 0 empty visi-ch3-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 106 bng 15 100 50 0 empty visi-ch3-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 106 bng 15 100 50 0 empty visi-ch3-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 121 bng 15 100 50 0 empty visi-ch4-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 121 bng 15 100 50 0 empty visi-ch4-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 121 bng 15 100 50 0 empty visi-ch4-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 121 bng 15 100 50 0 empty visi-ch4-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 121 bng 15 100 50 0 empty visi-ch4-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 121 bng 15 100 50 0 empty visi-ch4-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 121 bng 15 100 50 0 empty visi-ch4-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 121 bng 15 100 50 0 empty visi-ch4-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 121 bng 15 100 50 0 empty visi-ch4-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 121 bng 15 100 50 0 empty visi-ch4-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 121 bng 15 100 50 0 empty visi-ch4-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 121 bng 15 100 50 0 empty visi-ch4-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 121 bng 15 100 50 0 empty visi-ch4-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 121 bng 15 100 50 0 empty visi-ch4-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 121 bng 15 100 50 0 empty visi-ch4-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 121 bng 15 100 50 0 empty visi-ch4-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 139 bng 15 100 50 0 empty visi-ch5-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 139 bng 15 100 50 0 empty visi-ch5-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 139 bng 15 100 50 0 empty visi-ch5-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 139 bng 15 100 50 0 empty visi-ch5-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 139 bng 15 100 50 0 empty visi-ch5-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 139 bng 15 100 50 0 empty visi-ch5-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 139 bng 15 100 50 0 empty visi-ch5-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 139 bng 15 100 50 0 empty visi-ch5-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 139 bng 15 100 50 0 empty visi-ch5-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 139 bng 15 100 50 0 empty visi-ch5-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 139 bng 15 100 50 0 empty visi-ch5-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 139 bng 15 100 50 0 empty visi-ch5-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 139 bng 15 100 50 0 empty visi-ch5-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 139 bng 15 100 50 0 empty visi-ch5-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 139 bng 15 100 50 0 empty visi-ch5-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 139 bng 15 100 50 0 empty visi-ch5-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 154 bng 15 100 50 0 empty visi-ch6-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 154 bng 15 100 50 0 empty visi-ch6-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 154 bng 15 100 50 0 empty visi-ch6-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 154 bng 15 100 50 0 empty visi-ch6-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 154 bng 15 100 50 0 empty visi-ch6-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 154 bng 15 100 50 0 empty visi-ch6-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 154 bng 15 100 50 0 empty visi-ch6-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 154 bng 15 100 50 0 empty visi-ch6-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 154 bng 15 100 50 0 empty visi-ch6-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 154 bng 15 100 50 0 empty visi-ch6-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 154 bng 15 100 50 0 empty visi-ch6-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 154 bng 15 100 50 0 empty visi-ch6-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 154 bng 15 100 50 0 empty visi-ch6-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 154 bng 15 100 50 0 empty visi-ch6-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 154 bng 15 100 50 0 empty visi-ch6-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 154 bng 15 100 50 0 empty visi-ch6-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 169 bng 15 100 50 0 empty visi-ch7-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 169 bng 15 100 50 0 empty visi-ch7-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 169 bng 15 100 50 0 empty visi-ch7-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 169 bng 15 100 50 0 empty visi-ch7-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 169 bng 15 100 50 0 empty visi-ch7-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 169 bng 15 100 50 0 empty visi-ch7-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 169 bng 15 100 50 0 empty visi-ch7-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 169 bng 15 100 50 0 empty visi-ch7-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 169 bng 15 100 50 0 empty visi-ch7-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 169 bng 15 100 50 0 empty visi-ch7-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 169 bng 15 100 50 0 empty visi-ch7-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 169 bng 15 100 50 0 empty visi-ch7-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 169 bng 15 100 50 0 empty visi-ch7-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 169 bng 15 100 50 0 empty visi-ch7-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 169 bng 15 100 50 0 empty visi-ch7-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 169 bng 15 100 50 0 empty visi-ch7-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 184 bng 15 100 50 0 empty visi-ch8-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 184 bng 15 100 50 0 empty visi-ch8-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 184 bng 15 100 50 0 empty visi-ch8-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 184 bng 15 100 50 0 empty visi-ch8-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 184 bng 15 100 50 0 empty visi-ch8-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 184 bng 15 100 50 0 empty visi-ch8-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 184 bng 15 100 50 0 empty visi-ch8-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 184 bng 15 100 50 0 empty visi-ch8-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 184 bng 15 100 50 0 empty visi-ch8-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 184 bng 15 100 50 0 empty visi-ch8-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 184 bng 15 100 50 0 empty visi-ch8-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 184 bng 15 100 50 0 empty visi-ch8-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 184 bng 15 100 50 0 empty visi-ch8-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 184 bng 15 100 50 0 empty visi-ch8-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 184 bng 15 100 50 0 empty visi-ch8-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 184 bng 15 100 50 0 empty visi-ch8-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 202 bng 15 100 50 0 empty visi-ch9-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 202 bng 15 100 50 0 empty visi-ch9-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 202 bng 15 100 50 0 empty visi-ch9-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 202 bng 15 100 50 0 empty visi-ch9-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 202 bng 15 100 50 0 empty visi-ch9-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 202 bng 15 100 50 0 empty visi-ch9-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 202 bng 15 100 50 0 empty visi-ch9-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 202 bng 15 100 50 0 empty visi-ch9-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 202 bng 15 100 50 0 empty visi-ch9-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 202 bng 15 100 50 0 empty visi-ch9-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 202 bng 15 100 50 0 empty visi-ch9-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 202 bng 15 100 50 0 empty visi-ch9-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 202 bng 15 100 50 0 empty visi-ch9-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 202 bng 15 100 50 0 empty visi-ch9-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 202 bng 15 100 50 0 empty visi-ch9-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 202 bng 15 100 50 0 empty visi-ch9-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 217 bng 15 100 50 0 empty visi-ch10-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 217 bng 15 100 50 0 empty visi-ch10-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 217 bng 15 100 50 0 empty visi-ch10-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 217 bng 15 100 50 0 empty visi-ch10-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 217 bng 15 100 50 0 empty visi-ch10-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 217 bng 15 100 50 0 empty visi-ch10-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 217 bng 15 100 50 0 empty visi-ch10-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 217 bng 15 100 50 0 empty visi-ch10-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 217 bng 15 100 50 0 empty visi-ch10-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 217 bng 15 100 50 0 empty visi-ch10-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 217 bng 15 100 50 0 empty visi-ch10-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 217 bng 15 100 50 0 empty visi-ch10-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 217 bng 15 100 50 0 empty visi-ch10-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 217 bng 15 100 50 0 empty visi-ch10-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 217 bng 15 100 50 0 empty visi-ch10-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 217 bng 15 100 50 0 empty visi-ch10-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 232 bng 15 100 50 0 empty visi-ch11-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 232 bng 15 100 50 0 empty visi-ch11-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 232 bng 15 100 50 0 empty visi-ch11-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 232 bng 15 100 50 0 empty visi-ch11-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 232 bng 15 100 50 0 empty visi-ch11-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 232 bng 15 100 50 0 empty visi-ch11-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 232 bng 15 100 50 0 empty visi-ch11-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 232 bng 15 100 50 0 empty visi-ch11-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 232 bng 15 100 50 0 empty visi-ch11-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 232 bng 15 100 50 0 empty visi-ch11-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 232 bng 15 100 50 0 empty visi-ch11-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 232 bng 15 100 50 0 empty visi-ch11-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 232 bng 15 100 50 0 empty visi-ch11-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 232 bng 15 100 50 0 empty visi-ch11-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 232 bng 15 100 50 0 empty visi-ch11-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 232 bng 15 100 50 0 empty visi-ch11-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 247 bng 15 100 50 0 empty visi-ch12-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 247 bng 15 100 50 0 empty visi-ch12-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 247 bng 15 100 50 0 empty visi-ch12-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 247 bng 15 100 50 0 empty visi-ch12-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 247 bng 15 100 50 0 empty visi-ch12-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 247 bng 15 100 50 0 empty visi-ch12-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 247 bng 15 100 50 0 empty visi-ch12-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 247 bng 15 100 50 0 empty visi-ch12-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 247 bng 15 100 50 0 empty visi-ch12-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 247 bng 15 100 50 0 empty visi-ch12-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 247 bng 15 100 50 0 empty visi-ch12-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 247 bng 15 100 50 0 empty visi-ch12-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 247 bng 15 100 50 0 empty visi-ch12-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 247 bng 15 100 50 0 empty visi-ch12-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 247 bng 15 100 50 0 empty visi-ch12-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 247 bng 15 100 50 0 empty visi-ch12-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 265 bng 15 100 50 0 empty visi-ch13-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 265 bng 15 100 50 0 empty visi-ch13-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 265 bng 15 100 50 0 empty visi-ch13-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 265 bng 15 100 50 0 empty visi-ch13-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 265 bng 15 100 50 0 empty visi-ch13-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 265 bng 15 100 50 0 empty visi-ch13-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 265 bng 15 100 50 0 empty visi-ch13-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 265 bng 15 100 50 0 empty visi-ch13-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 265 bng 15 100 50 0 empty visi-ch13-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 265 bng 15 100 50 0 empty visi-ch13-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 265 bng 15 100 50 0 empty visi-ch13-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 265 bng 15 100 50 0 empty visi-ch13-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 265 bng 15 100 50 0 empty visi-ch13-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 265 bng 15 100 50 0 empty visi-ch13-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 265 bng 15 100 50 0 empty visi-ch13-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 265 bng 15 100 50 0 empty visi-ch13-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 280 bng 15 100 50 0 empty visi-ch14-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 280 bng 15 100 50 0 empty visi-ch14-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 280 bng 15 100 50 0 empty visi-ch14-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 280 bng 15 100 50 0 empty visi-ch14-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 280 bng 15 100 50 0 empty visi-ch14-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 280 bng 15 100 50 0 empty visi-ch14-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 280 bng 15 100 50 0 empty visi-ch14-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 280 bng 15 100 50 0 empty visi-ch14-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 280 bng 15 100 50 0 empty visi-ch14-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 280 bng 15 100 50 0 empty visi-ch14-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 280 bng 15 100 50 0 empty visi-ch14-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 280 bng 15 100 50 0 empty visi-ch14-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 280 bng 15 100 50 0 empty visi-ch14-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 280 bng 15 100 50 0 empty visi-ch14-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 280 bng 15 100 50 0 empty visi-ch14-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 280 bng 15 100 50 0 empty visi-ch14-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 295 bng 15 100 50 0 empty visi-ch15-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 295 bng 15 100 50 0 empty visi-ch15-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 295 bng 15 100 50 0 empty visi-ch15-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 295 bng 15 100 50 0 empty visi-ch15-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 295 bng 15 100 50 0 empty visi-ch15-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 295 bng 15 100 50 0 empty visi-ch15-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 295 bng 15 100 50 0 empty visi-ch15-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 295 bng 15 100 50 0 empty visi-ch15-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 295 bng 15 100 50 0 empty visi-ch15-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 295 bng 15 100 50 0 empty visi-ch15-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 295 bng 15 100 50 0 empty visi-ch15-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 295 bng 15 100 50 0 empty visi-ch15-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 295 bng 15 100 50 0 empty visi-ch15-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 295 bng 15 100 50 0 empty visi-ch15-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 295 bng 15 100 50 0 empty visi-ch15-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 295 bng 15 100 50 0 empty visi-ch15-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 109 310 bng 15 100 50 0 empty visi-ch16-1 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 124 310 bng 15 100 50 0 empty visi-ch16-2 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 139 310 bng 15 100 50 0 empty visi-ch16-3 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 154 310 bng 15 100 50 0 empty visi-ch16-4 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 173 310 bng 15 100 50 0 empty visi-ch16-5 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 188 310 bng 15 100 50 0 empty visi-ch16-6 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 203 310 bng 15 100 50 0 empty visi-ch16-7 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 218 310 bng 15 100 50 0 empty visi-ch16-8 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 237 310 bng 15 100 50 0 empty visi-ch16-9 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 252 310 bng 15 100 50 0 empty visi-ch16-10 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 267 310 bng 15 100 50 0 empty visi-ch16-11 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 282 310 bng 15 100 50 0 empty visi-ch16-12 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 301 310 bng 15 100 50 0 empty visi-ch16-13 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 316 310 bng 15 100 50 0 empty visi-ch16-14 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 331 310 bng 15 100 50 0 empty visi-ch16-15 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj 346 310 bng 15 100 50 0 empty visi-ch16-16 empty 17 7 0 10 -262144
+-258113 -1;
+#X obj -230 136 metro 100;
+#X msg -230 236 symbol visi-ch1-\$1;
+#X obj 109 331 bng 15 100 50 0 empty visi-beat-1 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 124 331 bng 15 100 50 0 empty visi-beat-2 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 139 331 bng 15 100 50 0 empty visi-beat-3 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 154 331 bng 15 100 50 0 empty visi-beat-4 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 173 331 bng 15 100 50 0 empty visi-beat-5 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 188 331 bng 15 100 50 0 empty visi-beat-6 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 203 331 bng 15 100 50 0 empty visi-beat-7 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 218 331 bng 15 100 50 0 empty visi-beat-8 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 237 331 bng 15 100 50 0 empty visi-beat-9 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 252 331 bng 15 100 50 0 empty visi-beat-10 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 267 331 bng 15 100 50 0 empty visi-beat-11 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 282 331 bng 15 100 50 0 empty visi-beat-12 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 301 331 bng 15 100 50 0 empty visi-beat-13 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 316 331 bng 15 100 50 0 empty visi-beat-14 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 331 331 bng 15 100 50 0 empty visi-beat-15 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj 346 331 bng 15 100 50 0 empty visi-beat-16 empty 17 7 0 10 -262144
+-162280 -1;
+#X obj -143 311 s;
+#X msg -143 259 symbol visi-beat-\$1;
+#X obj -143 281 t b s;
+#X connect 16 0 262 0;
+#X connect 17 0 18 0;
+#X connect 18 0 21 0;
+#X connect 20 0 19 0;
+#X connect 20 1 19 1;
+#X connect 21 0 263 0;
+#X connect 21 0 281 0;
+#X connect 262 0 17 0;
+#X connect 263 0 20 0;
+#X connect 281 0 282 0;
+#X connect 282 0 280 0;
+#X connect 282 1 280 1;
+#X restore 488 84 pd seq-visi;
 #X connect 2 0 3 0;
 #X connect 18 0 1 0;
 #X connect 18 1 0 0;
