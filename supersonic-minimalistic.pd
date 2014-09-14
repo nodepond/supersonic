@@ -1,4 +1,4 @@
-#N canvas 24 209 859 460 10;
+#N canvas 24 283 859 460 10;
 #X floatatom 117 -5 0 0 0 0 - - -;
 #X obj 30 -5 s rawmessage;
 #X obj 166 -29 r rawmessage;
@@ -43,7 +43,7 @@
 #X obj 167 343 table 15-vel 16;
 #X obj 167 363 table 16-vel 16;
 #X restore 31 144 pd init-tables;
-#N canvas 57 72 265 280 sequencer 1;
+#N canvas 57 72 265 280 sequencer 0;
 #X obj 23 31 r on;
 #X text 57 32 trigger;
 #X obj 23 113 cup;
@@ -53,7 +53,7 @@
 #X msg 44 65 0;
 #X obj 23 88 metro 125;
 #X text 147 159 0..15;
-#N canvas 270 138 465 453 trigger-notes 1;
+#N canvas 270 138 465 453 trigger-notes 0;
 #X obj 23 83 tabread 1-notes;
 #X obj 204 83 tabread 1-vel;
 #X obj 120 83 s 1-note;
@@ -659,7 +659,7 @@ ch13 ch14 ch15 ch16;
 #X connect 80 0 70 0;
 #X restore 30 25 pd socket-message-router;
 #X obj 30 -31 netreceive 3000;
-#N canvas 549 22 305 318 seq-visi 0;
+#N canvas 208 48 305 318 seq-visi 1;
 #X obj 21 23 bng 15 100 50 0 empty visi-ch1-1 empty 17 7 0 10 -262144
 -258113 -1;
 #X obj 36 23 bng 15 100 50 0 empty visi-ch1-2 empty 17 7 0 10 -262144
@@ -1345,6 +1345,7 @@ ch13 ch14 ch15 ch16;
 #X connect 68 0 44 1;
 #X restore 20 433 pd map-notes-to-visi;
 #X restore 488 84 pd seq-visi;
+#X msg 527 207 \; 3-vel const 100;
 #X connect 2 0 3 0;
 #X connect 18 0 1 0;
 #X connect 18 1 0 0;
