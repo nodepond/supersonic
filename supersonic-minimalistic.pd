@@ -7,7 +7,7 @@
 #X text 202 232 Writing of content;
 #X text 29 331 ToDo: Send actual seq-data to websocket in text-format
 ;
-#N canvas 317 22 727 452 init-tables 1;
+#N canvas 317 22 727 452 init-tables 0;
 #X obj 27 51 table 1-notes 16;
 #X obj 27 71 table 2-notes 16;
 #X obj 27 91 table 3-notes 16;
@@ -42,7 +42,7 @@
 #X obj 167 323 table 14-vel 16;
 #X obj 167 343 table 15-vel 16;
 #X obj 167 363 table 16-vel 16;
-#N canvas 168 195 804 467 init-velocities 0;
+#N canvas 434 248 804 467 init-velocities 0;
 #X msg 106 152 \; 3-vel const 100;
 #X msg 106 88 \; 1-vel const 100;
 #X msg 106 120 \; 2-vel const 100;
@@ -83,7 +83,7 @@
 #X text 57 32 trigger;
 #X obj 23 113 cup;
 #X obj 23 136 % 16;
-#X obj 23 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 23 66 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X msg 44 65 0;
 #X obj 23 88 metro 125;
