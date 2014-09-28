@@ -1,16 +1,17 @@
-# SuperSonic - A livecoding-tool for irb by m.wisniowsi (nodepond.com) and t.schrader (slogmen).
-# Currently this tool need an open socket to a pure-data patch
+# SuperSonic - A livecoding-tool with PureData as sequencer by m.wisniowsi (nodepond.com)
+# You can program the seuencer by sending text via sockets to a PureData patch
+# This is an open-source project. http://github.com/nodepond/supersonic
 
 require 'socket'
 require 'irb'
 require 'irb/completion'
 
 # SuperSonic-code
-require './supermidi'
 require './superui'
 require './superhelp'
 
-@nopuredata = false
+@host = 'localhost'
+@port = 3000
 
 ### UDP Socket connection has to be some troubles. Let's make this later...
 
@@ -19,176 +20,63 @@ require './superhelp'
 #s.send('hello World;', 0, 'localhost', 3001)
 #puts s
 
-#testing ARGV-stuff
 ARGV.each do |a|
-  puts a
-  if a == "--no-pd" then
-    @nopuredata = true
+  if a == "--host" then
+    @host = ARGV[ ARGV.index('--host') + 1 ]
   end
-  ARGV.delete(a)
+  if a == "--port" then
+    @port = ARGV[ ARGV.index('--port') + 1 ]
+  end
 end
+ARGV.delete_if {true}
 
 
 module Pd
-	@sock = nil
+	@socket = nil
 
 	def connect(host, port)
-		@sock = TCPSocket.new("localhost",port)
-		@sock.write ( 'SuperSonic connected on port '+ port.to_s+";")
+		@socket = TCPSocket.new(host, port)
+		@socket.write ( 'SuperSonic connected on port ' + port.to_s+";")
 	end
 
 	def disconnect
-		@sock.close
+		@socket.close
 	end
 
 	def send(message)
-		@sock.write(message+";")
+		@socket.write(message + ";")
 	end
 end
 
-class PdSeq16
+class PdConnection
 	include Pd
 
-	@sequence
+  @connection
 
-	def init(host='localhost',port=3000,track=1)
-		@sequence = Hash.new
-		@sequence = {
-			:type => "notes",
-			:data => "60 0 0 0 60 0 0 0 63 0 0 0 65 0 0 0",
-			:transpose => 0,
-			:track => track,
-			:length => 16,
-      :host => host,
+	def init(host='localhost', port=3000)
+    puts "...connecting to " + host + ":" + port.to_s + "\n\n"
+    @connection = Hash.new
+		@connection = {
+			:host => host,
       :port => port
 	}
-  self.connect(host,port)
-	end
-
-  def initWithTrack(track)
-    self.init('localhost',3000,track)
-  end
-
-	def seqDataHeader
-		return "seq16 " + @sequence[:track].to_s + " "
-	end
-
-	def data(mdata)
-		@sequence[:data] = mdata
-	end
-	alias_method :data=, :data
-	def data!(mdata)
-		@sequence[:data] = mdata
-		s
+  self.connect(host, port)
 	end
 
 	def info
-		return @sequence
+		return @connection
 	end
 	alias_method :i, :info
-
-	# send current sequence data to puredata
-	def s
-		# calculate transpose
-		mdata = @sequence[:data].split
-		mdata.map! { |note|
-			note = note.to_i + @sequence[:transpose]
-			note.to_s
-		}
-		data_to_send = mdata.join(" ")
-
-		# send data
-		#self.send(@sequence[:data])
-		self.send(seqDataHeader + data_to_send)
-	end
-
-	def track(num)
-		# num = usally 1..4
-		@sequence[:track] = num
-	end
-	alias_method :track=, :track
-
-
-	# transpose sequence values
-	def transpose(t)
-		@sequence[:transpose] = t
-	end
-	alias_method :transp, :transpose
-	alias_method :t, :transpose
-
-	def transpose!(t)
-		@sequence[:transpose] = t
-		s
-	end
-	alias_method :transp!, :transpose!
-	alias_method :t!, :transpose!
-
-	# transpose sequence values
-	def addTranspose(t)
-		@sequence[:transpose] += t
-	end
-	alias_method :addt, :addTranspose
-	# transpose sequence values
-	def addTranspose!(t)
-		@sequence[:transpose] += t
-		s
-	end
-	alias_method :addt!, :addTranspose!
-
-
-	# send stop signal
-	def stop
-		self.send(seqDataHeader + "stop")
-	end
-	alias_method :sto, :stop
-	alias_method :off, :stop
-
-	# send start signal
-	def start
-		self.send(seqDataHeader + "start")
-	end
-	alias_method :sta, :start
-	alias_method :on, :start
-
-	# send reset signal
-	def reset
-		self.send(seqDataHeader + "reset")
-	end
-	alias_method :r, :reset
-
-  # send seq length
-  def length(l)
-    if l != nil
-      @sequence[:length] = l
-    end
-    self.send(seqDataHeader + "length " + @sequence[:length].to_s)
-  end
-
-	# this method puts the current sequencer data into the copy-buffer to directly paste into irb and evaluate (currently mac only)
-	#http://utilitybelt.rubyforge.org/usage.html
-	#http://utilitybelt.rubyforge.org/svn/lib/utility_belt/clipboard.rb
-	def copybuffer
-		s = ""
-		s = "'#{@sequence[:data]}'"
-		IO.popen('pbcopy', 'w+') {|clipboard| clipboard.write(s)}
-		print s
-	end
-	alias_method :cp, :copybuffer
 end
 
-@pdseq16 = PdSeq16.new
+@pdconnection = PdConnection.new
 
-if !@nopuredata
-  @pdseq16.init
+@pdconnection.init(@host, @port)
+
+def pd
+	return @pdconnection
 end
-
-def seq16
-	return @pdseq16
-end
-
 
 IRB.start
 
-if !@nopuredata
-  seq16.disconnect
-end
+pd.disconnect
