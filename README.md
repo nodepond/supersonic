@@ -4,6 +4,8 @@ SuperSonic
 About
 -----
 
+alpha V0.01
+
 A minimalistic live-coding sequencer in PureData. The sequencer receives data via socket-connection - ready for live-coding with text, i.e. with Ruby, JavaScript or other scripting languages.
 
 The sequencer aims at generating MIDI-Data. So be sure, that you have setup, that is ready to receive incoming MIDI-data - no matter if this is hardware, a software host or another PureData-Instrument.
@@ -43,7 +45,9 @@ Type "man" for some help on the commands
 To send data to PD from irb:
 
  - pd.send(write ch1 60 0 0 0 60 0 0 0 60 0 0 0 60 0 0 0)
- 
+
+
+Here is a hands-on video, that explains the basic workflow
 
 
 Credits
