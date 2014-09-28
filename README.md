@@ -13,14 +13,14 @@ The sequencer aims at generating MIDI-Data. So be sure, that you have setup, tha
 Status
 ------
 
-You can take a look at the dev-board at Trello! Feel free to submit your feature-requests or bugs...
-
-https://trello.com/b/VwEZS1U1/supersonic
-
 Here is a hands-on video, that explains the basic workflow
 
 https://www.youtube.com/watch?v=PbZU2L12pcc
 
+
+You can take a look at the dev-board at Trello! Feel free to submit your feature-requests or bugs...
+
+https://trello.com/b/VwEZS1U1/supersonic
 
 
 Doku
