@@ -36,7 +36,7 @@ Then start supersonic with "ruby supersonic.rb". An irb with supersonic-commands
 
 SuperSonic connects to a pure-data patch, listening to a TCP-Socket on the localhost. The port is per default 3000.
 
-If you need, to connect to another host or port, then you will configure it like this:
+If you need to connect to another host or port, then you will configure it like this:
 
  - Open the PD-patch and edit the port in the netreceive module.
  - Start the supersonic-irb console with 'ruby supersonic --host myhost --port myport'
@@ -45,7 +45,7 @@ If you need, to connect to another host or port, then you will configure it like
 Type "man" for some help on the commands
 ```
 
-To send data to PD from irb:
+Example to send data to PD from irb:
 
  - pd.send(write ch1 60 0 0 0 60 0 0 0 60 0 0 0 60 0 0 0)
 
