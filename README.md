@@ -28,13 +28,11 @@ Doku
 
 Requirements: Puredata-Extended and Ruby with required ruby gems
 
-```
 Open PureData-Patch "supersonic.pd". You can to this from console as well with 'open supersonic.pd'.
 
 Configure the MIDI-Settings in your PureData-Environment.
 
 Then start supersonic with "ruby supersonic.rb". An irb with supersonic-commands opens.
-```
 
 SuperSonic connects to a pure-data patch, listening to a TCP-Socket on the localhost. The port is per default 3000.
 
