@@ -55,4 +55,4 @@ Credits
 
 This project was started by Martin "Nodepond" Wisniowski (http://www.nodepond.com) in January 2014 after a discussion with Thömmes "Slogmen" Schrader (http://www.slog.io) about Raspberry Pi, Ruby and LiveCoding.
 
-SuperSonic is maintained by Martin Wisniowski, with hands-on and good feedback from T.Schrader and the PureData UserGroup Cologne (http://pdcologne.reboot-network.de).
+SuperSonic is maintained by Martin Wisniowski, with hands-on and feedback from T. Schrader and the PureData UserGroup Cologne (http://pdcologne.reboot-network.de).
