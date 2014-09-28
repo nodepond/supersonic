@@ -17,6 +17,11 @@ You can take a look at the dev-board at Trello! Feel free to submit your feature
 
 https://trello.com/b/VwEZS1U1/supersonic
 
+Here is a hands-on video, that explains the basic workflow
+
+https://www.youtube.com/watch?v=PbZU2L12pcc
+
+
 
 Doku
 ----
@@ -45,9 +50,6 @@ Type "man" for some help on the commands
 To send data to PD from irb:
 
  - pd.send(write ch1 60 0 0 0 60 0 0 0 60 0 0 0 60 0 0 0)
-
-
-Here is a hands-on video, that explains the basic workflow
 
 
 Credits
