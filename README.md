@@ -47,7 +47,7 @@ Type "man" (or "m" or "manual") for some help on the commands
 
 Example to send data to PD from irb:
 
- - pd.send("write ch1 60 0 0 0 60 0 0 0 60 0 0 0 60 0 0 0")
+ - pd.send("write ch1 60 0 0 0 60 0 0 0 60 0 0 0 60 0 0 0") - Send 16 midi-notes to step-sequencer at midi-channel 1 
  - pd.send("start") - Start the sequencer
  - pd.send("stop") - Stop the sequencer
  - pd.send("bpm 140") - Set bpm to number provided
