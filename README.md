@@ -4,7 +4,7 @@ SuperSonic
 About
 -----
 
-alpha V0.01
+alpha V0.02
 
 A minimalistic live-coding sequencer in PureData. The sequencer receives data via socket-connection - ready for live-coding with text, i.e. with Ruby, JavaScript or other scripting languages.
 
@@ -42,12 +42,15 @@ If you need to connect to another host or port, then you will configure it like 
  - Start the supersonic-irb console with 'ruby supersonic --host myhost --port myport'
 
 ```
-Type "man" for some help on the commands
+Type "man" (or "m" or "manual") for some help on the commands
 ```
 
 Example to send data to PD from irb:
 
- - pd.send(write ch1 60 0 0 0 60 0 0 0 60 0 0 0 60 0 0 0)
+ - pd.send("write ch1 60 0 0 0 60 0 0 0 60 0 0 0 60 0 0 0")
+ - pd.send("start") - Start the sequencer
+ - pd.send("stop") - Stop the sequencer
+ - pd.send("bpm 140") - Set bpm to number provided
 
 
 Credits
